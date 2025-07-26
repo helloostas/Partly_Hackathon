@@ -1,9 +1,7 @@
-<<<<<<< HEAD
+
 import terms from './car_terms.json' assert { type: 'json' };
 let glossary = terms;
-=======
-let glossary = {};
->>>>>>> parent of d85dafe (Update script.js)
+
 
 // Load the car terms glossary
 fetch('car_terms.json')
