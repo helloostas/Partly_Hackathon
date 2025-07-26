@@ -1,5 +1,5 @@
-// 1. Glossary Declaration (empty object to start)
-let glossary = {};
+import terms from './car_terms.json' assert { type: 'json' };
+let glossary = terms;
 
 // 2. Load Glossary Data with Error Handling
 fetch('car_terms.json')
