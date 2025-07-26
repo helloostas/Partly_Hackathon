@@ -27,4 +27,6 @@ function translate() {
 
   // Clear input field
   document.getElementById('userInput').value = '';
+
 }
+document.getElementById("translateBtn").addEventListener("click", translate);
