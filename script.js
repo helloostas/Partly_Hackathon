@@ -1,25 +1,28 @@
-const glossary = {
-  "guard": "fender panel",
-  "bumper": "bumper cover",
-  "nearside": "left side (passenger side in UK, driver side in NZ)",
-  "offside": "right side (driver side in UK, passenger side in NZ)",
-  "boot": "trunk",
-  "bonnet": "hood",
-  "windscreen": "windshield",
-  "door": "which part? door shell, handle, or window assembly?",
-  "driveshaft": "rotating axle that transfers power from engine to wheels"
-};
+let glossary = {};
+
+// Load glossary from the JSON file
+fetch('car_terms.json')
+  .then(res => res.json())
+  .then(data => glossary = data);
 
 function translate() {
-  const input = document.getElementById("input").value.toLowerCase();
-  let translated = input;
+  const input = document.getElementById('userInput').value.toLowerCase().trim();
+  const chatbox = document.getElementById('chatbox');
 
-  for (const [term, plain] of Object.entries(glossary)) {
-    const regex = new RegExp(`\\b${term}\\b`, 'g');
-    translated = translated.replace(regex, `**${plain}**`);
+  // Add user's message
+  chatbox.innerHTML += `<div class="user"><strong>You:</strong> ${input}</div>`;
+
+  // Check for translation
+  const explanation = glossary[input];
+  if (explanation) {
+    chatbox.innerHTML += `<div class="bot"><strong>Bot:</strong> ${explanation}</div>`;
+  } else {
+    chatbox.innerHTML += `<div class="bot"><strong>Bot:</strong> Sorry, I don’t know that one yet.</div>`;
   }
 
-  document.getElementById("output").innerHTML = `
-    <strong>Translation:</strong><br>${translated.replace(/\n/g, '<br>')}
-  `;
+  // Scroll to bottom
+  chatbox.scrollTop = chatbox.scrollHeight;
+
+  // Clear input
+  document.getElementById('userInput').value = '';
 }

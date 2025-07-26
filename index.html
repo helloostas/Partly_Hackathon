@@ -8,12 +8,14 @@
 </head>
 <body>
   <h1>🚗 Car Chat Translator</h1>
-  <p>Type in a confusing car term to get a simple explanation.</p>
+  <p>Ask me what a car term means, and I’ll explain it.</p>
 
-  <div id="chatbox"></div>
+  <div id="chatbox" class="chatbox"></div>
 
-  <input type="text" id="userInput" placeholder="e.g. catalytic converter" />
-  <button onclick="translate()">Translate</button>
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="e.g. catalytic converter" />
+    <button onclick="translate()">Send</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
