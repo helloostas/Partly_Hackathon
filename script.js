@@ -1,6 +1,6 @@
 let glossary = {};
 
-// Load glossary from the JSON file
+// Load the car terms glossary
 fetch('car_terms.json')
   .then(res => res.json())
   .then(data => glossary = data);
@@ -9,20 +9,22 @@ function translate() {
   const input = document.getElementById('userInput').value.toLowerCase().trim();
   const chatbox = document.getElementById('chatbox');
 
-  // Add user's message
-  chatbox.innerHTML += `<div class="user"><strong>You:</strong> ${input}</div>`;
+  if (!input) return;
 
-  // Check for translation
-  const explanation = glossary[input];
-  if (explanation) {
-    chatbox.innerHTML += `<div class="bot"><strong>Bot:</strong> ${explanation}</div>`;
-  } else {
-    chatbox.innerHTML += `<div class="bot"><strong>Bot:</strong> Sorry, I don’t know that one yet.</div>`;
-  }
+  // Add user message
+  chatbox.innerHTML += `<div class="user">${input}</div>`;
+
+  // Determine bot response
+  const response = glossary[input]
+    ? glossary[input]
+    : "Sorry, I don't know that one yet.";
+
+  // Add bot message
+  chatbox.innerHTML += `<div class="bot">${response}</div>`;
 
   // Scroll to bottom
   chatbox.scrollTop = chatbox.scrollHeight;
 
-  // Clear input
+  // Clear input field
   document.getElementById('userInput').value = '';
 }
