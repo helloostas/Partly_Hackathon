@@ -98,11 +98,44 @@ function translate() {
   }
 
 
+
   // Add bot response
   chatbox.innerHTML += `<div class="bot">${response}</div>`;
   chatbox.scrollTop = chatbox.scrollHeight;
   document.getElementById('userInput').value = '';
 }
+
+const inputField = document.getElementById('userInput');
+const autocompleteList = document.getElementById('autocomplete-list');
+
+inputField.addEventListener("input", function () {
+  const val = this.value.toLowerCase();
+  autocompleteList.innerHTML = "";
+
+  if (!val) return;
+
+  const matches = Object.keys(glossary).filter(key =>
+    key.toLowerCase().includes(val)
+  );
+
+  matches.slice(0, 5).forEach(key => {
+    const item = document.createElement("div");
+    item.innerHTML = `<strong>${key.substr(0, val.length)}</strong>${key.substr(val.length)}`;
+    item.addEventListener("click", function () {
+      inputField.value = key;
+      autocompleteList.innerHTML = "";
+      inputField.focus();
+    });
+    autocompleteList.appendChild(item);
+  });
+});
+
+// Hide suggestions when clicking outside
+document.addEventListener("click", function (e) {
+  if (e.target !== inputField) {
+    autocompleteList.innerHTML = "";
+  }
+});
 
 
 document.getElementById("translateBtn").addEventListener("click", translate);
