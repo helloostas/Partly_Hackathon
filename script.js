@@ -17,6 +17,57 @@ const glossary = {
   "transmission": "A system that changes gears so the car can move at different speeds."
 };
 
+const fileAliases = {
+  "wheel": "brake pad",
+  "brake_pad": "brake pad",
+  "radiator": "radiator",
+  "engine": "engine control unit",
+  "cvjoint": "cv joint",
+  "cv_joint": "cv joint",
+  "sparkplug": "spark plug",
+  "spark_plug": "spark plug",
+  "timingbelt": "timing belt",
+  "timing_belt": "timing belt",
+  "muffler": "muffler"
+};
+
+const imageDropZone = document.getElementById('imageDropZone');
+
+imageDropZone.addEventListener('dragover', e => e.preventDefault());
+
+imageDropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  const file = e.dataTransfer.files[0];
+  const chatbox = document.getElementById('chatbox');
+
+  if (!file || !file.name.match(/\.(jpg|jpeg|png)$/i)) {
+    chatbox.innerHTML += `<div class="bot">Please drop a valid image file (jpg, png).</div>`;
+    return;
+  }
+
+  const fileName = file.name.toLowerCase().replace(/[_\s-]/g, "").trim();
+  const imgUrl = URL.createObjectURL(file);
+
+  // Show image preview
+  chatbox.innerHTML += `<div><img src="${imgUrl}" alt="Dropped Image" class="bot-img"></div>`;
+
+  // Match filename to glossary
+  let matchedTerm = null;
+  for (let alias in fileAliases) {
+    if (fileName.includes(alias)) {
+      matchedTerm = fileAliases[alias];
+      break;
+    }
+  }
+
+  if (matchedTerm && glossary[matchedTerm]) {
+    chatbox.innerHTML += `<div class="bot"><strong>${matchedTerm}:</strong> ${glossary[matchedTerm]}</div>`;
+  } else {
+    chatbox.innerHTML += `<div class="bot">Sorry, I don't recognize that part.</div>`;
+  }
+
+  chatbox.scrollTop = chatbox.scrollHeight;
+});
 
 function translate() {
   const input = document.getElementById('userInput').value.trim().toLowerCase();
