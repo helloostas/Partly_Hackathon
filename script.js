@@ -17,57 +17,6 @@ const glossary = {
   "transmission": "A system that changes gears so the car can move at different speeds."
 };
 
-const fileAliases = {
-  "wheel": "brake pad",
-  "brake_pad": "brake pad",
-  "radiator": "radiator",
-  "engine": "engine control unit",
-  "cvjoint": "cv joint",
-  "cv_joint": "cv joint",
-  "sparkplug": "spark plug",
-  "spark_plug": "spark plug",
-  "timingbelt": "timing belt",
-  "timing_belt": "timing belt",
-  "muffler": "muffler"
-};
-
-const imageDropZone = document.getElementById('imageDropZone');
-
-imageDropZone.addEventListener('dragover', e => e.preventDefault());
-
-imageDropZone.addEventListener('drop', e => {
-  e.preventDefault();
-  const file = e.dataTransfer.files[0];
-  const chatbox = document.getElementById('chatbox');
-
-  if (!file || !file.name.match(/\.(jpg|jpeg|png)$/i)) {
-    chatbox.innerHTML += `<div class="bot">Please drop a valid image file (jpg, png).</div>`;
-    return;
-  }
-
-  const fileName = file.name.toLowerCase().replace(/[_\s-]/g, "").trim();
-  const imgUrl = URL.createObjectURL(file);
-
-  // Show image preview
-  chatbox.innerHTML += `<div><img src="${imgUrl}" alt="Dropped Image" class="bot-img"></div>`;
-
-  // Match filename to glossary
-  let matchedTerm = null;
-  for (let alias in fileAliases) {
-    if (fileName.includes(alias)) {
-      matchedTerm = fileAliases[alias];
-      break;
-    }
-  }
-
-  if (matchedTerm && glossary[matchedTerm]) {
-    chatbox.innerHTML += `<div class="bot"><strong>${matchedTerm}:</strong> ${glossary[matchedTerm]}</div>`;
-  } else {
-    chatbox.innerHTML += `<div class="bot">Sorry, I don't recognize that part.</div>`;
-  }
-
-  chatbox.scrollTop = chatbox.scrollHeight;
-});
 
 function translate() {
   const input = document.getElementById('userInput').value.trim().toLowerCase();
@@ -98,44 +47,11 @@ function translate() {
   }
 
 
-
   // Add bot response
   chatbox.innerHTML += `<div class="bot">${response}</div>`;
   chatbox.scrollTop = chatbox.scrollHeight;
   document.getElementById('userInput').value = '';
 }
-
-const inputField = document.getElementById('userInput');
-const autocompleteList = document.getElementById('autocomplete-list');
-
-inputField.addEventListener("input", function () {
-  const val = this.value.toLowerCase();
-  autocompleteList.innerHTML = "";
-
-  if (!val) return;
-
-  const matches = Object.keys(glossary).filter(key =>
-    key.toLowerCase().includes(val)
-  );
-
-  matches.slice(0, 5).forEach(key => {
-    const item = document.createElement("div");
-    item.innerHTML = `<strong>${key.substr(0, val.length)}</strong>${key.substr(val.length)}`;
-    item.addEventListener("click", function () {
-      inputField.value = key;
-      autocompleteList.innerHTML = "";
-      inputField.focus();
-    });
-    autocompleteList.appendChild(item);
-  });
-});
-
-// Hide suggestions when clicking outside
-document.addEventListener("click", function (e) {
-  if (e.target !== inputField) {
-    autocompleteList.innerHTML = "";
-  }
-});
 
 
 document.getElementById("translateBtn").addEventListener("click", translate);
