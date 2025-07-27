@@ -3,12 +3,23 @@ body {
   max-width: 600px;
   margin: 30px auto;
   padding: 0 20px;
-  background-color: #f8f8f8;
 }
 
 h1 {
   text-align: center;
 }
+
+.unicorn-embed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Push behind everything */
+  pointer-events: none; /* Allows interaction through it */
+  object-fit: cover;
+}
+
 
 .chatbox {
   background: #ffffff;
