@@ -1,8 +1,9 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Aileron', sans-serif;
   max-width: 600px;
   margin: 30px auto;
   padding: 0 20px;
+  color: #000000;
 }
 
 h1 {
@@ -15,11 +16,18 @@ h1 {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1; /* Push behind everything */
-  pointer-events: none; /* Allows interaction through it */
+  z-index: -1;
+  pointer-events: none; /* ensures you can still click UI elements */
   object-fit: cover;
 }
 
+
+@font-face {
+  font-family: 'Aileron';
+  src: url('./fonts/Aileron\ Heavy.otf') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 
 .chatbox {
   background: #ffffff;
