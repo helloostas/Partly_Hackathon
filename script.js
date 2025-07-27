@@ -177,4 +177,39 @@ function translate() {
 
 document.getElementById("translateBtn").addEventListener("click", translate);
 
+document.getElementById("userInput").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") document.getElementById("translateBtn").click();
+});
 
+const glossaryTerms = Object.keys(glossary);
+const inputField = document.getElementById("userInput");
+const suggestionBox = document.getElementById("suggestions");
+
+inputField.addEventListener("input", function () {
+  const value = inputField.value.toLowerCase();
+  suggestionBox.innerHTML = '';
+
+  if (!value) return;
+
+  const matches = glossaryTerms.filter(term =>
+    term.toLowerCase().includes(value)
+  );
+
+  matches.slice(0, 5).forEach(match => {
+    const li = document.createElement("li");
+    li.textContent = match;
+    li.addEventListener("click", () => {
+      inputField.value = match;
+      suggestionBox.innerHTML = '';
+      translate(); // Optionally auto-submit
+    });
+    suggestionBox.appendChild(li);
+  });
+});
+
+// Hide suggestions when clicking elsewhere
+document.addEventListener("click", e => {
+  if (!suggestionBox.contains(e.target) && e.target !== inputField) {
+    suggestionBox.innerHTML = '';
+  }
+});

@@ -9,15 +9,18 @@
 <body>
 
   <div class="main-container">
-    <h1>Brake It Down</h1>
+    <img src="assets/partly_logo.png" alt="Brake It Down Logo" class="logo" />
     <div id="chatbox" class="chatbox"></div>
   </div>
 
   <div class="input-area">
     <input type="text" id="userInput" placeholder="e.g. catalytic converter"/>
-    <div id="autocomplete-list" class="autocomplete-items"></div>
     <button id="translateBtn">Send</button> <!-- Remove onclick -->
   </div>
+<ul id="suggestions" class="suggestions-list"></ul>
+
+
+
 
   <div id="imageDropZone" class="drop-zone">
   <p>Drag & drop an image here</p>
@@ -50,7 +53,7 @@
 
   <script src="script.js"></script>
 
-
+<div class="logo-cover"></div>
  
 </body>
 </html>
