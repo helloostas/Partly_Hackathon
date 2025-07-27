@@ -1,59 +1,51 @@
-// 1. Glossary Declaration (empty object to start)
-let glossary = {};
+// HARDCODED GLOSSARY SOLUTION (No JSON file needed)
+const glossary = {
+  "catalytic converter": "A device in your car's exhaust system that reduces harmful emissions.",
+  "oil pan gasket": "A rubber seal that prevents engine oil from leaking out of the engine.",
+  "spark plug": "A part that produces a spark to ignite fuel in the engine and start combustion.",
+  "timing belt": "A belt that keeps the engine's internal parts moving in sync.",
+  "cv joint": "A joint in your axle that helps your wheels turn smoothly while driving.",
+  "alternator": "A part that charges your battery and powers electrical systems while the engine runs.",
+  "brake pad": "A piece that presses against the brake disc to slow or stop your car.",
+  "radiator": "A part that helps cool down the engine and prevents it from overheating.",
+  "fuel injector": "It sprays fuel into the engine so it can be burned for power.",
+  "air filter": "A filter that keeps dirt and dust from entering the engine.",
+  "check engine light": "A warning light that means something may be wrong with your car's systems.",
+  "muffler": "A part of the exhaust that reduces noise from the engine.",
+  "engine control unit": "The car's computer that manages engine performance.",
+  "oxygen sensor": "A sensor that measures oxygen in the exhaust to improve fuel efficiency.",
+  "transmission": "A system that changes gears so the car can move at different speeds."
+};
 
-// 2. Load Glossary Data with Error Handling
-fetch('car_terms.json')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(data => {
-    glossary = data;
-    console.log('Glossary successfully loaded:', Object.keys(glossary));
-  })
-  .catch(error => {
-    console.error('Error loading glossary:', error);
-    alert('Failed to load car terms. Please check console for details.');
-  });
-
-// 3. Translation Function with Improved Matching
 function translate() {
-  // Get and clean user input
   const input = document.getElementById('userInput').value.trim().toLowerCase();
   const chatbox = document.getElementById('chatbox');
 
-  if (!input) return; // Exit if empty input
+  if (!input) return;
 
-  // Add user message to chat
+  // Add user message
   chatbox.innerHTML += `<div class="user">${input}</div>`;
 
-  // Check for matches (exact or partial)
+  // Smart matching
   let response = "Sorry, I don't know that one yet.";
   
-  // First try exact match
+  // Exact match
   if (glossary[input]) {
     response = glossary[input];
   }
-  // Then try flexible matching
+  // Flexible matching
   else {
     const normalizedInput = input.replace(/\s+/g, ' ');
     const foundKey = Object.keys(glossary).find(key => 
       key.toLowerCase().replace(/\s+/g, ' ') === normalizedInput
     );
-    if (foundKey) {
-      response = glossary[foundKey];
-    }
+    if (foundKey) response = glossary[foundKey];
   }
 
   // Add bot response
   chatbox.innerHTML += `<div class="bot">${response}</div>`;
-  
-  // Reset UI
   chatbox.scrollTop = chatbox.scrollHeight;
   document.getElementById('userInput').value = '';
 }
 
-// 4. Event Listener (MUST be at bottom)
 document.getElementById("translateBtn").addEventListener("click", translate);
