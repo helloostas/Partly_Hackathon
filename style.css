@@ -1,15 +1,16 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Aileron', sans-serif;
   max-width: 600px;
   margin: 30px auto;
   padding: 0 20px;
-  background-color: #f8f8f8;
+  color: #000000;
 }
 
-font-face {
-  font-family: Aileron;
-  src: url('..') format()
+
+h1 {
+  text-align: center;
 }
+
 
 .unicorn-embed {
   position: fixed;
@@ -17,14 +18,30 @@ font-face {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1; /* Push behind everything */
-  pointer-events: none; /* Allows interaction through it */
+  z-index: -1;
+  pointer-events: none; /* ensures you can still click UI elements */
   object-fit: cover;
-  display: none !important;
 }
 
-h1 {
-  text-align: center;
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  background-color: white;
+  z-index: 99;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.autocomplete-items div:hover {
+  background-color: #f1f1f1;
+  left: 0;
+  right: 0;
 }
 
 .chatbox {
@@ -39,17 +56,20 @@ h1 {
 }
 
 .input-area {
+  position: relative;
   display: flex;
   gap: 10px;
 }
+
 
 input[type="text"] {
   flex: 1;
   padding: 10px;
   font-size: 16px;
-  border-radius: 4px;
+  border-radius: 20px;
   border: 1px solid #ccc;
 }
+
 
 button {
   padding: 10px 16px;
@@ -57,9 +77,10 @@ button {
   background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
 }
+
 
 .user, .bot {
   margin: 8px 0;
@@ -69,14 +90,148 @@ button {
   word-wrap: break-word;
 }
 
+
 .user {
   background-color: #d9edff;
   text-align: right;
   margin-left: auto;
 }
 
+
 .bot {
   background-color: #eeeeee;
   text-align: left;
   margin-right: auto;
+}
+
+.drop-zone {
+  border: 2px dashed #aaa;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+.drop-zone {
+  border: 2px dashed #ccc;
+  padding: 30px;
+  text-align: center;
+  margin: 20px auto;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px; /* 👈 This rounds the corners */
+  transition: background-color 0.3s ease;
+  color: white;
+}
+
+.drop-zone:hover,
+.drop-zone.dragover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.bot-img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  display: block;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Center everything */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  padding: 0 20px;
+}
+
+/* Center title */
+.main-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 32px;
+}
+
+/* Style the chatbox */
+.chatbox {
+  width: 100%;
+  max-width: 600px;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: rgba(248, 248, 248, 0.5); /* semi-transparent bg */
+  opacity: 1;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Optional: Style messages */
+.chatbox .user {
+  align-self: flex-end;
+  background-color: #d0f0c0; /* pale green */
+    color: #1a1a1a;            /* dark text for readability */
+  padding: 10px 14px;
+  border-radius: 30px;
+  max-width: 80%;
+}
+
+.chatbox .bot {
+  align-self: flex-start;
+  background-color: #f0f0f5; /* light gray-blue */
+  color: #1a1a1a;            /* dark text */
+  padding: 10px 14px;
+  border-radius: 30px;
+  max-width: 80%;
+}
+
+
+.suggestions-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: white;
+  border: 0px solid #ccc;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  max-height: 150px;
+  overflow-y: auto;
+  width: 300px;
+  z-index: 10;
+  font-size: 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.suggestions-list li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #eee;
+}
+
+.logo-cover {
+  position: fixed;
+  bottom: 30px; /* Distance from the bottom of the screen */
+  left: 50%;    /* Start at center */
+  transform: translateX(-50%); /* Perfectly center it */
+  width: 179px;  /* Adjust to match logo width */
+  height: 30px;  /* Adjust to match logo height */
+  background-color: white; /* Or match your background */
+  z-index: 9999;
+  pointer-events: none; /* Ensures it doesn't block clicks if needed */
 }

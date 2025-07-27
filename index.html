@@ -5,33 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brake it Down! w Partly</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.28/dist/unicornStudio.umd.js"></script>
-</head>
+  <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"></script></head>
 <body>
-  <h1>🚗 Car Chat Translator</h1>
-  <p>Ask me what a car term means, and I’ll explain it.</p>
-  <!-- Project ID: PTw0YA0ZR8e2VnR9ygRM -->
-  <div id="chatbox" class="chatbox"></div>
 
-  <div class="input-area">
-    <input type="text" id="userInput" placeholder="e.g. catalytic converter" />
-    <button id="translateBtn">Send</button> <!-- Remove onclick -->
+  <div class="main-container">
+    <img src="assets/partly_logo.png" alt="Brake It Down Logo" class="logo" />
+    <div id="chatbox" class="chatbox"></div>
   </div>
 
-  <script src="script.js"></script>
+  <div class="input-area">
+    <input type="text" id="userInput" placeholder="e.g. catalytic converter"/>
+    <button id="translateBtn">Send</button> <!-- Remove onclick -->
+  </div>
+<ul id="suggestions" class="suggestions-list"></ul>
+
+
+
+
+  <div id="imageDropZone" class="drop-zone">
+  <p>Drag & drop an image here</p>
+</div>
+
 
   <div
   class="unicorn-embed"
-  data-us-project="PTw0YA0ZR8e2VnR9ygRM"
+  data-us-project="TXFWfFyLSP3TS10JchS1"
   data-us-scale="1"
   data-us-dpi="1.5"
   data-us-lazyload="true"
   data-us-disablemobile="true"
   data-us-disablemouse="false"
-  data-us-alttext="test"
+  data-us-alttext="Welcome to Unicorn Studio"
   data-us-arialabel="This is a canvas scene"
-></div>
-<script>
+  ></div>
+
+
+  <script>
   UnicornStudio.init()
     .then((scenes) => {
       // Scenes are ready
@@ -39,7 +48,12 @@
     .catch((err) => {
       console.error(err);
     });
-</script>
+  </script>
 
+
+  <script src="script.js"></script>
+
+<div class="logo-cover"></div>
+ 
 </body>
 </html>
