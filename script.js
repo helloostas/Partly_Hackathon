@@ -17,34 +17,22 @@ const glossary = {
   "transmission": "A system that changes gears so the car can move at different speeds."
 };
 
-const fileAliases = {
-  "brakepad": "brake pad",
-  "brake_pad": "brake pad",
-  "brake.jpg": "brake pad",
-  "cvjoint": "cv joint",
-  "cv_joint": "cv joint",
-  "cv.jpg": "cv joint",
-  "sparkplug": "spark plug",
-  "spark_plug": "spark plug",
-  "plug.jpg": "spark plug",
-  "catalytic": "catalytic converter",
-  "converter": "catalytic converter",
-  "catalytic.jpg": "catalytic converter"
-};
-
 
 function translate() {
   const input = document.getElementById('userInput').value.trim().toLowerCase();
   const chatbox = document.getElementById('chatbox');
 
+
   if (!input) return;
+
 
   // Add user message
   chatbox.innerHTML += `<div class="user">${input}</div>`;
 
+
   // Smart matching
   let response = "Sorry, I don't know that one yet.";
-  
+ 
   // Exact match
   if (glossary[input]) {
     response = glossary[input];
@@ -52,11 +40,12 @@ function translate() {
   // Flexible matching
   else {
     const normalizedInput = input.replace(/\s+/g, ' ');
-    const foundKey = Object.keys(glossary).find(key => 
+    const foundKey = Object.keys(glossary).find(key =>
       key.toLowerCase().replace(/\s+/g, ' ') === normalizedInput
     );
     if (foundKey) response = glossary[foundKey];
   }
+
 
   // Add bot response
   chatbox.innerHTML += `<div class="bot">${response}</div>`;
@@ -65,52 +54,6 @@ function translate() {
 }
 
 
-
-
-const imageDropZone = document.getElementById('imageDropZone');
-
-imageDropZone.addEventListener('dragover', e => e.preventDefault());
-
-imageDropZone.addEventListener('drop', e => {
-  e.preventDefault();
-  const file = e.dataTransfer.files[0];
-  const chatbox = document.getElementById('chatbox');
-
-  if (!file || !file.name.match(/\.(jpg|jpeg|png)$/)) {
-    chatbox.innerHTML += `<div class="bot">Please drop a valid image file.</div>`;
-    return;
-  }
-
-const fileName = file.name.toLowerCase().replace(/[\_\s\-]/g, "").trim();
-
-// Show image preview
-const imageURL = URL.createObjectURL(file);
-chatbox.innerHTML += `
-  <div class="user">
-    [You dropped: ${file.name}]<br/>
-    <img src="${imageURL}" alt="Dropped Image" style="max-width: 100%; height: auto; border-radius: 6px; margin-top: 5px;" />
-  </div>
-`;
-
-
-  let matchedTerm = null;
-
-  for (let alias in fileAliases) {
-    if (fileName.includes(alias)) {
-      matchedTerm = fileAliases[alias];
-      break;
-    }
-  }
-
-  if (matchedTerm && glossary[matchedTerm]) {
-    chatbox.innerHTML += `<div class="bot"><strong>${matchedTerm}:</strong> ${glossary[matchedTerm]}</div>`;
-  } else {
-    chatbox.innerHTML += `<div class="bot">Sorry, I don't recognize that part.</div>`;
-  }
-
-  chatbox.scrollTop = chatbox.scrollHeight;
-});
-
-
 document.getElementById("translateBtn").addEventListener("click", translate);
+
 

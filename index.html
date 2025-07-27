@@ -7,20 +7,17 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"></script></head>
 <body>
-  <h1>Car Chat Translator</h1>
-  <p>Ask me what a car term means, and I’ll explain it.</p>
+  <h1>Brake It Down</h1>
+  <p></p>
+
 
   <div id="chatbox" class="chatbox"></div>
+
 
   <div class="input-area">
     <input type="text" id="userInput" placeholder="e.g. catalytic converter" />
     <button id="translateBtn">Send</button> <!-- Remove onclick -->
   </div>
-
-  <!-- Image Drag & Drop Section -->
-<div class="car-silhouette" id="imageDropZone">
-  <p>📷 Drag and drop a car part image here</p>
-</div>
 
 
   <div
@@ -34,6 +31,8 @@
   data-us-alttext="Welcome to Unicorn Studio"
   data-us-arialabel="This is a canvas scene"
   ></div>
+
+
   <script>
   UnicornStudio.init()
     .then((scenes) => {
@@ -43,5 +42,11 @@
       console.error(err);
     });
   </script>
+
+
+  <script src="script.js"></script>
+
+
+ 
 </body>
 </html>

@@ -6,9 +6,11 @@ body {
   color: #000000;
 }
 
+
 h1 {
   text-align: center;
 }
+
 
 .unicorn-embed {
   position: fixed;
@@ -22,12 +24,7 @@ h1 {
 }
 
 
-@font-face {
-  font-family: 'Aileron';
-  src: url('./fonts/Aileron\ Heavy.otf') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 .chatbox {
   background: #ffffff;
@@ -40,10 +37,12 @@ h1 {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
+
 .input-area {
   display: flex;
   gap: 10px;
 }
+
 
 input[type="text"] {
   flex: 1;
@@ -52,6 +51,7 @@ input[type="text"] {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
 
 button {
   padding: 10px 16px;
@@ -63,6 +63,7 @@ button {
   cursor: pointer;
 }
 
+
 .user, .bot {
   margin: 8px 0;
   padding: 8px 12px;
@@ -71,27 +72,16 @@ button {
   word-wrap: break-word;
 }
 
+
 .user {
   background-color: #d9edff;
   text-align: right;
   margin-left: auto;
 }
 
+
 .bot {
   background-color: #eeeeee;
   text-align: left;
   margin-right: auto;
 }
-
-#imageDropZone {
-  border: 2px dashed #999;
-  border-radius: 8px;
-  background-color: #eaf2f8;
-  padding: 30px;
-  text-align: center;
-  margin-top: 20px;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-
