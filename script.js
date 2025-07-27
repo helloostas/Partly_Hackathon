@@ -17,18 +17,22 @@ const glossary = {
   "transmission": "A system that changes gears so the car can move at different speeds."
 };
 
+
 function translate() {
   const input = document.getElementById('userInput').value.trim().toLowerCase();
   const chatbox = document.getElementById('chatbox');
 
+
   if (!input) return;
+
 
   // Add user message
   chatbox.innerHTML += `<div class="user">${input}</div>`;
 
+
   // Smart matching
   let response = "Sorry, I don't know that one yet.";
-  
+ 
   // Exact match
   if (glossary[input]) {
     response = glossary[input];
@@ -36,11 +40,12 @@ function translate() {
   // Flexible matching
   else {
     const normalizedInput = input.replace(/\s+/g, ' ');
-    const foundKey = Object.keys(glossary).find(key => 
+    const foundKey = Object.keys(glossary).find(key =>
       key.toLowerCase().replace(/\s+/g, ' ') === normalizedInput
     );
     if (foundKey) response = glossary[foundKey];
   }
+
 
   // Add bot response
   chatbox.innerHTML += `<div class="bot">${response}</div>`;
@@ -48,5 +53,7 @@ function translate() {
   document.getElementById('userInput').value = '';
 }
 
+
 document.getElementById("translateBtn").addEventListener("click", translate);
+
 
