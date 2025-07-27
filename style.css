@@ -160,7 +160,7 @@ button {
 /* Style the chatbox */
 .chatbox {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   min-height: 200px;
   max-height: 400px;
   overflow-y: auto;
