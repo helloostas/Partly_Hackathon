@@ -75,3 +75,15 @@ button {
   margin-right: auto;
 }
 
+#imageDropZone {
+  border: 2px dashed #999;
+  border-radius: 8px;
+  background-color: #eaf2f8;
+  padding: 30px;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+
