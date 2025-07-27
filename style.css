@@ -6,6 +6,18 @@ body {
   background-color: #f8f8f8;
 }
 
+.unicorn-embed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Push behind everything */
+  pointer-events: none; /* Allows interaction through it */
+  object-fit: cover;
+  display: none !important;
+}
+
 h1 {
   text-align: center;
 }
