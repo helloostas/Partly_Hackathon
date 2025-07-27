@@ -165,8 +165,8 @@ button {
   max-height: 400px;
   overflow-y: auto;
   padding: 15px;
-  background-color: #f8f8f8;
-  opacity: 0.5;
+  background-color: rgba(248, 248, 248, 0.5); /* semi-transparent bg */
+  opacity: 1;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
@@ -180,7 +180,8 @@ button {
 /* Optional: Style messages */
 .chatbox .user {
   align-self: flex-end;
-  background-color: #d1e7ff;
+  background-color: #d0f0c0; /* pale green */
+    color: #1a1a1a;            /* dark text for readability */
   padding: 10px 14px;
   border-radius: 30px;
   max-width: 80%;
@@ -188,7 +189,8 @@ button {
 
 .chatbox .bot {
   align-self: flex-start;
-  background-color: #e0e0e0;
+  background-color: #f0f0f5; /* light gray-blue */
+  color: #1a1a1a;            /* dark text */
   padding: 10px 14px;
   border-radius: 30px;
   max-width: 80%;
