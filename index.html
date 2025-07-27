@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Car Chat Translator</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.28/dist/unicornStudio.umd.js"></script>
 </head>
 <body>
   <h1>🚗 Car Chat Translator</h1>
@@ -16,6 +17,28 @@
     <input type="text" id="userInput" placeholder="e.g. catalytic converter" />
     <button id="translateBtn">Send</button> <!-- Remove onclick -->
   </div>
+
+  <div
+  class="unicorn-embed"
+  data-us-project="PTw0YA0ZR8e2VnR9ygRM"
+  data-us-scale="1"
+  data-us-dpi="1.5"
+  data-us-lazyload="true"
+  data-us-disablemobile="true"
+  data-us-disablemouse="false"
+  data-us-alttext="test"
+  data-us-arialabel="This is a canvas scene"
+  ></div>
+
+  <script>
+  UnicornStudio.init()
+    .then((scenes) => {
+      // Scenes are ready
+    })
+    .catch((err) => {
+      console.error(err);
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>
