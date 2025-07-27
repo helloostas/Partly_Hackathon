@@ -157,6 +157,7 @@ button {
   font-size: 32px;
 }
 
+
 /* Style the chatbox */
 .chatbox {
   width: 100%;
@@ -234,4 +235,12 @@ button {
   background-color: white; /* Or match your background */
   z-index: 9999;
   pointer-events: none; /* Ensures it doesn't block clicks if needed */
+}
+
+.result {
+  margin-top: 20px;
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 8px;
+  font-family: monospace;
 }
