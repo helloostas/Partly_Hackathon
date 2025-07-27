@@ -2,83 +2,83 @@
 const glossary = {
   "spark plug": {
     description: "A part that produces a spark to ignite fuel in the engine and start combustion.",
-    note: "Easy and cheap to replace. Often a DIY job under $20."
+    note: "$5-$25 per plug (most cars need 4-8). Labor: $50-$150 if done by mechanic."
   },
   "cv joint": {
     description: "A joint in your axle that helps your wheels turn smoothly while driving.",
-    note: "Moderately expensive. Labor-intensive, requires a mechanic."
+    note: "$200-$600 per axle including labor. Boot replacement alone: $150-$300."
   },
   "alternator": {
     description: "Charges your battery and powers electrical systems while the engine runs.",
-    note: "Expensive ($300+). Requires a skilled mechanic to replace."
+    note: "$400-$800 rebuilt, $600-$1,200 new. Labor: 1.5-3 hours ($150-$300)."
   },
   "oil pan gasket": {
     description: "A rubber seal that prevents engine oil from leaking out of the oil pan.",
-    note: "Medium difficulty. Labor cost is high even if the part is cheap."
+    note: "$20-$80 for part. Labor-intensive: $150-$400 total (engine access often requires disassembly)."
   },
   "timing belt": {
     description: "A belt that synchronizes the engine’s camshaft and crankshaft.",
-    note: "Very expensive and time-consuming. Can cost $500+ with labor."
+    note: "$500-$1,000 with labor (includes water pump replacement). Critical - breaks at 60,000-100,000 miles."
   },
   "brake pad": {
     description: "Pads that press against the brake disc to slow or stop your car.",
-    note: "Relatively affordable and quick to replace. DIY possible."
+    note: "$30-$150 per axle for parts. $100-$300 total with labor. Ceramic pads cost more but last longer."
   },
   "radiator": {
     description: "A part that helps cool down the engine and prevents it from overheating.",
-    note: "Expensive part, medium-hard job. Can be $400–$900 total."
+    note: "$300-$900 total. Aluminum radiators cost more than plastic. Labor: 1-3 hours."
   },
   "fuel injector": {
     description: "Sprays fuel into the engine in fine mist so it can combust.",
-    note: "Difficult to replace and costly if several need replacement."
+    note: "$150-$300 per injector. V6/V8 engines need 6-8. Labor: $200-$500 for full set."
   },
   "air filter": {
     description: "A filter that keeps dust and debris out of the engine.",
-    note: "Very cheap and easy. Anyone can do it in 5 minutes."
+    note: "$15-$50. Easiest DIY job (takes 5 minutes without tools)."
   },
   "check engine light": {
     description: "A warning light on your dashboard indicating something’s wrong.",
-    note: "Diagnosis varies. Might cost nothing or several hundred dollars."
+    note: "$50-$150 diagnostic fee. Repair costs vary wildly from $20 (loose gas cap) to $2,000+."
   },
   "muffler": {
     description: "Part of the exhaust system that reduces engine noise.",
-    note: "Moderately priced. Some cars allow for DIY replacement."
+    note: "$200-$600. Stainless steel lasts longer. Labor: $100-$200. Some states require OEM parts."
   },
   "engine control unit": {
     description: "The car’s onboard computer that controls engine performance.",
-    note: "Very expensive. Only trained professionals should handle it."
+    note: "$500-$1,500 for part + $200-$400 programming. Used units may save costs."
   },
   "oxygen sensor": {
     description: "Measures oxygen in exhaust gases to optimize fuel efficiency.",
-    note: "Affordable part, but tricky to reach in some models."
+    note: "$100-$250 per sensor. Most cars have 2-4. Labor: $50-$100 per sensor."
   },
   "transmission": {
     description: "Changes gears to help your car move at different speeds.",
-    note: "One of the most expensive parts to replace. Avoid damage!"
+    note: "$3,000-$6,000+ for rebuild/replacement. Fluid changes every 30,000-60,000 miles prevent issues."
   },
   "battery": {
     description: "Provides the electrical power to start your car and run electronics.",
-    note: "Easy to replace. Costs vary between $100–$300."
+    note: "$100-$300. Labor: $20-$50 if not DIY. Lasts 3-5 years. Premium batteries have longer warranties."
   },
   "headlight bulb": {
     description: "Lights on the front of your car that help you see at night.",
-    note: "Usually easy to replace. Cheap part ($10–$50)."
+    note: "$10-$50 per bulb. Labor: $25-$100 (some models require bumper removal). LED upgrades cost more."
   },
   "windshield wipers": {
     description: "Keeps your windshield clear of rain and debris.",
-    note: "Inexpensive and super easy to replace in minutes."
+    note: "$15-$50 per set. Replace every 6-12 months. Easy DIY installation."
   },
   "water pump": {
     description: "Circulates coolant through your engine to keep it from overheating.",
-    note: "Labor-intensive and expensive. Often replaced with timing belt."
+    note: "$300-$800 total. Often replaced with timing belt (saves on labor costs)."
   },
   "drive belt": {
     description: "Transfers power from engine to components like AC and alternator.",
-    note: "Medium difficulty. Can be done DIY but requires tensioning."
+    note: "$25-$100 for belt. Labor: $100-$200. Replace every 60,000-100,000 miles."
   },
   "catalytic converter": {
     description: "Reduces harmful emissions by converting exhaust gases.",
-    note: "Very expensive (often $1,000+). Also frequently stolen."
+    note: "$800-$2,500 OEM. Aftermarket: $400-$1,200. Theft-prone - engrave your VIN on it."
   }
 };
 
