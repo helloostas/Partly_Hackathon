@@ -49,3 +49,4 @@ function translate() {
 }
 
 document.getElementById("translateBtn").addEventListener("click", translate);
+
