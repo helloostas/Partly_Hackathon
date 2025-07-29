@@ -5,7 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Brake it Down! w Partly</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"></script></head>
+  <script src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js"></script>
+
+</head>
+
 <body>
 
   <div class="main-container">
@@ -17,15 +20,10 @@
     <input type="text" id="userInput" placeholder="e.g. catalytic converter"/>
     <button id="translateBtn">Send</button> <!-- Remove onclick -->
   </div>
-<ul id="suggestions" class="suggestions-list"></ul>
-
-
-
 
   <div id="imageDropZone" class="drop-zone">
-  <p>Drag & drop an image here</p>
-</div>
-
+    <p>Drag & drop an image here</p>
+  </div>
 
   <div
   class="unicorn-embed"
@@ -39,7 +37,6 @@
   data-us-arialabel="This is a canvas scene"
   ></div>
 
-
   <script>
   UnicornStudio.init()
     .then((scenes) => {
@@ -49,7 +46,6 @@
       console.error(err);
     });
   </script>
-
 
   <script src="script.js"></script>
 
