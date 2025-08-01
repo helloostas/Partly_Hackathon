@@ -1,16 +1,23 @@
 body {
   font-family: 'Aileron', sans-serif;
-  max-width: 600px;
   margin: 30px auto;
   padding: 0 20px;
   color: #000000;
+  box-sizing: border-box;
+  width: 100vw;  /* Force it to match screen width */
+  overflow-x: hidden;  /* Prevent horizontal scroll */
 }
 
+/* Optional for desktop only */
+@media (min-width: 769px) {
+  body {
+    max-width: 600px;
+  }
+}
 
 h1 {
   text-align: center;
 }
-
 
 .unicorn-embed {
   position: fixed;
@@ -120,7 +127,7 @@ button {
   margin: 20px auto;
   max-width: 400px;
   background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 16px; /* 👈 This rounds the corners */
+  border-radius: 16px;
   transition: background-color 0.3s ease;
   color: white;
 }
